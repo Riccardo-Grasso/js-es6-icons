@@ -12,6 +12,30 @@
 </head>
 
 <body>
+    <header>
+        <section class="container-fluid">
+            <h1 class="header-title mt-3">FontIcons</h1>
+        </section>
+    </header>
+    <main>
+        <div class="d-flex align-items-center justify-content-center blue-bg py-4">
+            <label for="select-difficolta" class="pe-3 fw-bold text-white fs-3">FILTRA PER TIPO</label>
+            <select class="form-select my-nav-color form-select-width" id="select-difficolta"
+                aria-label="Floating label select example">
+                <option value="all" selected="selected">All</option>
+                <option value="animal">Animal</option>
+                <option value="vegetable">Vegetable</option>
+                <option value="user">User</option>
+            </select>
+        </div>
+
+        <section class="container my-5">
+            <div class="row row-cols-5 icon-container g-3"></div>
+        </section>
+
+    </main>
+
+    <script src="js/datiIniziali.js"></script>
     <script src="js/script.js"></script>
 </body>
 
