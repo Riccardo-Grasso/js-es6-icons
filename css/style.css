@@ -2,6 +2,10 @@ main {
     background-color: lightgrey;
 }
 
+header {
+    height: 48px;
+}
+
 .header-title {
     color: #29B1DD;
 }
@@ -12,6 +16,7 @@ main {
 
 .blue-bg {
     background-color: #29B1DD;
+    height: 90px;
 }
 
 .my-rounded {

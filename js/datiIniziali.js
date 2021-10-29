@@ -115,7 +115,7 @@ function stampaIcone(list) {
 
 		iconContainer.innerHTML += `
     <div class="col d-flex justify-content-center my-4">
-      <div class="card my-width my-rounded">
+      <div class="card my-width my-rounded py-5">
         <div class="card-img-top d-flex justify-content-center align-items-center pt-4">
           <i class="${family} ${prefix + name} fs-1" style="color: ${color}" ></i>
         </div>
