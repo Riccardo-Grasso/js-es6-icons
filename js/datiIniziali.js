@@ -109,7 +109,7 @@ filterSelect.addEventListener("change", renderPage);
 
 function renderPage() {
 
-	console.log(this.value);
+	/* console.log(this.value); */
 	let filtro = this.value || "all";
 
 	const colors = {
@@ -119,31 +119,60 @@ function renderPage() {
 	};
 
 	function raggruppaPerCategoria(iconsList) {
-		const listaGruppi = {};
+		/* const listaGruppi = {}; */
 		for (let i = 0; i < iconsList.length; i++) {
-			const { type, name, prefix, family } = iconsList[i];
 
+			iconsList[i].color = colors[iconsList[i].type];
 
-			if (!listaGruppi[type]) {
-				listaGruppi[type] = [];
-			}
-
-			listaGruppi[type].push({
-				"name": name,
-				"prefix": prefix,
-				family,
-				color() {
-					return colors[type];
+			/* 	const { type, name, prefix, family } = iconsList[i];
+	
+	
+				if (!listaGruppi[type]) {
+					listaGruppi[type] = [];
 				}
-			});
+	
+				listaGruppi[type].push({
+					"name": name,
+					"prefix": prefix,
+					family,
+					color() {
+						return colors[type];
+					}
+				}); */
 		}
-		stampaSingolaCategoria(listaGruppi);
+		stampaSingolaCategoria(iconsList);
 	}
 
 	function stampaSingolaCategoria(listaDaStampare) {
 		iconContainer.innerHTML = "";
 
-		for (let prop in listaDaStampare) {
+		const stampa = listaDaStampare.filter(item => {
+			if (filtro === "all") {
+				return true;
+			}
+			return filtro === item.type;
+		});
+
+		for (let i = 0; i < stampa.length; i++) {
+
+			const icon = stampa[i];
+			const { name, prefix, family, color } = icon;
+
+			iconContainer.innerHTML += `
+			<div class="col d-flex justify-content-center my-4">
+				<div class="card my-width my-rounded py-5">
+					<div class="card-img-top d-flex justify-content-center align-items-center pt-4">
+						<i class="${family} ${prefix + name} fs-1" style="color: ${color}" ></i>
+					</div>
+					<div class="card-body py-2">
+						<div class="card-title text-center fw-bold">${name.toUpperCase()}</div>
+					</div>
+				</div>
+			</div>`;
+
+		}
+
+		/* for (let prop in listaDaStampare) {
 
 			if (filtro === "all" || filtro === prop) {
 
@@ -167,11 +196,11 @@ function renderPage() {
 
 				}
 			}
-		}
+		} */
 	}
 	const iconeRaggruppate = raggruppaPerCategoria(iconsList);
 
-	console.log(iconeRaggruppate);
+	/* console.log(iconeRaggruppate); */
 }
 renderPage();
 
